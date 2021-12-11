@@ -47,8 +47,14 @@
 			"style":  {
 				"navigationBarTitleText": "添加书评"
 			}
-		}
-	],
+		},
+        {
+            "path" : "pages/post/post",
+            "style" : {
+                "navigationBarTitleText": " 查看书评"
+            }            
+        }
+    ],
 	"tabBar": {
 		"color": "#7A7E83",
 	    "selectedColor": "#000000",

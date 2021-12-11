@@ -18,7 +18,11 @@
             </view>            
             <view class="comment-list">
                 <uni-list>
-                    <uni-list-item title="跳转到另一个页面,可返回" link="navigateTo" to="./chat" @click="onClick" />
+                    <uni-list-item v-for="post in posts" :key="post.pid"
+                        :title="post.postTitle"
+                        link="navigateTo"
+                        to="/pages/post/post"
+                    />
                 </uni-list>
             </view>            
         </view>
@@ -28,9 +32,10 @@
     import { uniList, uniListItem } from '@dcloudio/uni-ui';
 
     export default {
-        components:{ uniList, uniListItem },
+        components: { uniList, uniListItem },
         data: function() {
             return {
+                posts: [],
                 bookName: '',
                 bookFace: '',
                 authors: '',
@@ -41,7 +46,7 @@
         onLoad: function(option) {
             // 外部传递的参数存储在 option 对象中
             // 可通过 option.[参数名] 的方式来访问
-            console.log(option.bookid)
+            // console.log(option.bookid)
             const that = this;
             uni.request({
                 method : 'GET',
@@ -54,6 +59,7 @@
                         that.authors = res.data[0].authors;
                         that.publishingHouse = res.data[0].publishingHouse;
                         that.publishDate = res.data[0].publishDate;
+                        that.getPosts(option.bookid);
                     } else if(res.statusCode === 500)  {
                         uni.showToast({
                             title : '数据库错误信息',
@@ -72,7 +78,37 @@
                         icon : 'error'
                     });
                 }
-            });
+            });            
+        },
+        methods: {
+            getPosts: function(bookid) {
+                const that = this;
+                uni.request({
+                    method : 'GET',
+                    url : 'http://localhost:3000/posts/booklist/'+bookid,
+                    success : function(res) {
+                        if(res.statusCode === 200) {
+                            that.posts = res.data;
+                       }  else if(res.statusCode === 500)  {
+                            uni.showToast({
+                                title : '数据库错误信息',
+                                icon : 'error'
+                            });
+                        } else if(res.statusCode === 404)  {
+                            uni.showToast({
+                                title : '当前书籍还没有人评论',
+                                icon : 'error'
+                            });
+                        }
+                    },
+                    fail: function(err) {
+                        uni.showToast({
+                            title : '服务器不响应',
+                            icon : 'error'
+                        });
+                    }
+                });
+            }
         }
     }
 </script>
