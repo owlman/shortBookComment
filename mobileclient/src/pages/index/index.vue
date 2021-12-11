@@ -185,7 +185,6 @@
                 });
             },
             getUserPosts: function(uid) {
-                console.log('aaa');
                 const that = this;
                 uni.request({
                     method : 'GET',
