@@ -46,7 +46,6 @@
         onLoad: function(option) {
             // 外部传递的参数存储在 option 对象中
             // 可通过 option.[参数名] 的方式来访问
-            // console.log(option.bookid)
             const that = this;
             uni.request({
                 method : 'GET',

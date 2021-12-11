@@ -5,6 +5,20 @@
             <view class="text-area">
                 <text class="title">{{title}}</text>            
             </view>
+            <view class="book-comment">
+                <view class="list-title">
+                    <text>你已发布的书评：</text>
+                </view>            
+                <view class="comment-list">
+                    <uni-list>
+                        <uni-list-item v-for="post in posts" :key="post.pid"
+                            :title="post.postTitle"
+                            link="navigateTo"
+                            to="/pages/post/post"
+                        />
+                    </uni-list>
+                </view>            
+            </view>
             <view class="formBtn">
                 <button @click="logout">退出登录</button>
             </view>
@@ -30,10 +44,13 @@
 </template>
 <script>
     import md5 from 'blueimp-md5';
+    import { uniList, uniListItem } from '@dcloudio/uni-ui';
 
     export default {
+        components: { uniList, uniListItem },
 		data: function() {
 			return {
+                posts: [],
 				title: '',
                 user: {
                     uid: "",
@@ -52,7 +69,8 @@
                     // console.log(res.data);
                     that.user = JSON.parse(res.data);
                     if(that.user.isLogin) {
-                        that.getUserMessage(that.user.uid);                                            
+                        that.getUserMessage(that.user.uid);
+                        that.getUserPosts(that.user.uid)
                     }
                 }
             });
@@ -82,10 +100,11 @@
                             uni.setStorage({
                                 key: 'user',
                                 data: JSON.stringify(that.user),
-                                    success: function () {
-                                        // 登录成功并获取用户信息
-                                        // console.log('setStorage success');
-                                        that.getUserMessage(that.user.uid);
+                                success: function () {
+                                    // 登录成功并获取用户信息
+                                    // console.log('setStorage success');
+                                    that.getUserMessage(that.user.uid);
+                                    that.getUserPosts(that.user.uid)
                                 }
                             });
                         }  else if(res.statusCode === 400) {
@@ -158,6 +177,35 @@
                         }
                     },
                     fail :  function(err) {
+                        uni.showToast({
+                            title : '服务器不响应',
+                            icon : 'error'
+                        });
+                    }
+                });
+            },
+            getUserPosts: function(uid) {
+                console.log('aaa');
+                const that = this;
+                uni.request({
+                    method : 'GET',
+                    url : 'http://localhost:3000/posts/userlist/'+uid,
+                    success : function(res) {
+                        if(res.statusCode === 200) {
+                            that.posts = res.data;
+                       }  else if(res.statusCode === 500)  {
+                            uni.showToast({
+                                title : '数据库错误信息',
+                                icon : 'error'
+                            });
+                        } else if(res.statusCode === 404)  {
+                            uni.showToast({
+                                title : '当前用户还没有评论',
+                                icon : 'error'
+                            });
+                        }
+                    },
+                    fail: function(err) {
                         uni.showToast({
                             title : '服务器不响应',
                             icon : 'error'
@@ -239,5 +287,9 @@
         width: 45%;
 		border-radius: 25rpx;
         background-color: lightgray;
+    }
+    .book-comment {
+        margin-top: 10%;
+        margin-bottom: 10%;
     }
 </style>
