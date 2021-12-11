@@ -1,0 +1,21 @@
+{
+  "name": "05_bookComment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webbuild": "cd webclient && npm run build && cd ..",
+    "start": "npm run webbuild && node ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.95.4",
+    "nodemon": "^2.0.12",
+    "sqlite3": "^4.2.0"
+  },
+  "devDependencies": {
+    "sass-loader": "^10.1.1"
+  }
+}

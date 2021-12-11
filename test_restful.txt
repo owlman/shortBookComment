@@ -1,0 +1,45 @@
+# 模拟用户注册
+$ curl -d "user=owlman&passwd=12345" http://localhost:3000/users/newuser
+user_added
+
+# 模拟用户登录
+$ curl -d "user=owlman&passwd=12345" http://localhost:3000/users/session -v
+* TCP_NODELAY set                                                                                      
+* Connected to localhost (::1) port 3000 (#0)                                                          
+> POST /users/session HTTP/1.1                                                                         
+> Host: localhost:3000                                                                                 
+> User-Agent: curl/7.55.1                                                                              
+> Accept: */*                                                                                          
+> Content-Length: 24                                                                                   
+> Content-Type: application/x-www-form-urlencoded                                                      
+>                                                                                                      
+* upload completely sent off: 24 out of 24 bytes                                                       
+< HTTP/1.1 200 OK                                                                                      
+< Set-Cookie: uid=1        # 获取到 cookie 信息 
+< Content-Type: application/json                                                                       
+< Date: Thu, 29 Apr 2021 04:35:35 GMT                                                                  
+< Connection: keep-alive                                                                               
+< Keep-Alive: timeout=5                                                                                
+< Transfer-Encoding: chunked                                                                           
+<                                                                                                      
+[{"uid":1}] * Connection #0 to host localhost left intact                                                          
+
+# 模拟获取用户信息
+$ curl --cookie "uid=1" http://localhost:3000/users/1
+[{"uid":1,"userName":"owlman","password":"12345"}]
+
+# 模拟修改用户信息
+$ curl --cookie "uid=1" -d "user=owlman&passwd=123456789" http://localhost:3000/users/1
+user_updated
+
+# 再次模拟用户登录
+$ curl -d "user=owlman&passwd=123456789" http://localhost:3000/users/session
+[{"uid":1}]
+
+# 模拟删除用户
+$ curl --cookie "uid=1" -X DELETE http://localhost:3000/users/1
+user_deleted
+
+# 再次模拟用户登录
+$ curl -d "user=owlman&passwd=123456789" http://localhost:3000/users/session
+uname_passwd_err

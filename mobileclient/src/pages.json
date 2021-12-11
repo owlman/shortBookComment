@@ -1,0 +1,78 @@
+{
+	"globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "短书评",
+        "navigationBarBackgroundColor": "#000000",
+        "backgroundColor": "#696969",
+        "enablePullDownRefresh": true,
+		"h5": {
+			"pullToRefresh": {
+				"color":"#696969"
+			}
+		}
+	},
+	"pages":  [
+		{
+			"path": "pages/index/index", 
+			"style": {
+				"navigationBarTitleText": "欢迎光临"
+			}
+		},
+        {
+			"path": "pages/books/books",
+			"style": {
+				"navigationBarTitleText": "书籍列表"
+			}
+		},
+		{
+			"path": "pages/users/users",
+			"style": {
+				"navigationBarTitleText": "用户信息"
+			}
+		},
+        {
+			"path": "pages/signup/signup", 
+			"style": {
+				"navigationBarTitleText": "新用户注册"
+			}
+		},
+        {
+			"path": "pages/bookmessage/bookmessage",
+			"style": {
+				"navigationBarTitleText": "书籍信息"
+			}
+		},
+        {
+			"path": "pages/newpost/newpost", 
+			"style":  {
+				"navigationBarTitleText": "添加书评"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+	    "selectedColor": "#000000",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/home.png",
+				"selectedIconPath":"static/home.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/books/books",
+				"iconPath": "static/list.png",
+				"selectedIconPath":"static/list.png",
+				"text": "书籍"
+			},
+			{
+				"pagePath": "pages/users/users",
+				"iconPath": "static/users.png",
+				"selectedIconPath":"static/users.png",
+				"text": "个人"
+			}
+		]
+	}
+}

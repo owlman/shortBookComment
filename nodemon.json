@@ -1,0 +1,16 @@
+{
+    "restartable": "rs",
+    "verbose": true,
+    "watch": [
+        "restfulAPI/",
+        "webclient/src/",
+        "index.js"
+    ],
+    "ignore": [
+        ".git",
+        "node_modules/**/node_modules"
+    ],
+    "delay": "1000",
+    "exec": "npm run start",
+    "ext": "js vue html css json"
+}
