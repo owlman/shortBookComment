@@ -57,19 +57,23 @@
 	.content {
 		margin: 2%;
 	}
+
     .book-list {
-        display: block;
-        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
     .book {
-		margin: 2%;
-        display: block;
-        float: left;
-        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+		margin: 2%;;
     }
     .book-image {
-        display: block;
-        width: 95%;
+		width: 300rpx;
+        height: 450rpx;
+		margin: 4%;;
     }
     .book-title  {
 		margin: 2%;

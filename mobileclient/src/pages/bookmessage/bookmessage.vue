@@ -9,7 +9,7 @@
                 <text>写作者：{{ authors }}</text>
                 <text>出版社：{{ publishingHouse }}</text>
                 <text>出版日：{{ publishDate.toLocaleDateString() }}</text>
-                <navigator url="/pages/newpost/newpost"> >>> 添加新书评</navigator>
+                <navigator :url="'/pages/newpost/newpost?bookid='+bookid"> >>> 添加新书评</navigator>
             </view>
         </view>
         <view class="book-comment">
@@ -36,6 +36,7 @@
         data: function() {
             return {
                 posts: [],
+                bookid: '',
                 bookName: '',
                 bookFace: '',
                 authors: '',
@@ -47,6 +48,7 @@
             // 外部传递的参数存储在 option 对象中
             // 可通过 option.[参数名] 的方式来访问
             const that = this;
+            that.bookid = option.bookid;
             uni.request({
                 method : 'GET',
                 url : 'http://localhost:3000/books/'+option.bookid,

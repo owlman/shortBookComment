@@ -287,6 +287,7 @@
 		border-radius: 25rpx;
         background-color: lightgray;
     }
+
     .book-comment {
         margin-top: 10%;
         margin-bottom: 10%;
