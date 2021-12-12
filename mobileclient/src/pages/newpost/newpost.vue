@@ -50,7 +50,7 @@
                     postContent: formdata.postContent,
                     postDate: new Date()
                 };
-                console.log(postData);
+                const that = this;
                 uni.request({
                     method  : 'POST',
                     url  : 'http://localhost:3000/posts/newpost',
@@ -61,8 +61,17 @@
                     success :  function(res) {
                         // 返回的响应数据存储在 res.data 对象中
                         // console.log(res.data);
+                        const pages= getCurrentPages();
+                        const prevPage = pages[pages.length -2];
                         if(res.statusCode === 200) {
-                            uni.navigateBack(1);
+                            uni.navigateBack({
+                                success: function(){
+                                    const option = {
+                                        bookid: that.bookid
+                                    };
+                                    prevPage.onLoad(option);
+                                }
+                            });
                         }  else if(res.statusCode === 400) {
                             uni.showToast({
                                     title : '请输入书评的标题和内容',
