@@ -1,22 +1,22 @@
 <template>
     <view class="content">
         <view class="book">
-            <view class="image-view">
-                <image class="book-image" :src="bookFace"></image>
+            <view class="imageView">
+                <image class="bookImage" :src="bookFace"></image>
             </view>
-            <view class="book-message">
-                <text class="book-title">《{{ bookName }}》</text>
+            <view class="bookMessage">
+                <text class="bookTitle">《{{ bookName }}》</text>
                 <text>写作者：{{ authors }}</text>
                 <text>出版社：{{ publishingHouse }}</text>
                 <text>出版日：{{ publishDate.toLocaleDateString() }}</text>
                 <navigator :url="'/pages/newpost/newpost?bookid='+bookid"> >>> 添加新书评</navigator>
             </view>
         </view>
-        <view class="book-comment">
-            <view class="list-title">
+        <view class="bookComment">
+            <view class="listTitle">
                <text>已有书评：</text>
             </view>            
-            <view class="comment-list">
+            <view class="commentList">
                 <uni-list>
                     <uni-list-item v-for="post in posts" :key="post.pid"
                         :title="post.postTitle"
@@ -127,17 +127,17 @@
 		margin: 5%;
 	}
 
-    .book-comment {
+    .bookComment {
 		margin: 5%;
     }
 
-    .book-image {
+    .bookImage {
 		width: 250rpx;
         height: 320rpx;
 		margin: 5%;
     }
 
-    .book-message {
+    .bookMessage {
         display: flex;
         flex-direction: column;
         align-content: space-between;
@@ -145,11 +145,11 @@
 		margin: 5%;
     }
 
-    .book-message navigator {
+    .bookMessage navigator {
         margin-top: 30rpx;
     }
    
-    .book-title {
+    .bookTitle {
         font-size: 38rpx;
         margin-bottom: 50rpx;
     }

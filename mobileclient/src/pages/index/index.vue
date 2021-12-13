@@ -2,14 +2,14 @@
 	<view class="content">
         <view v-if="user.isLogin">
             <image class="logo" src="/static/logo.png"></image>
-            <view class="text-area">
+            <view class="postArea">
                 <text class="title">{{title}}</text>            
             </view>
-            <view class="book-comment">
+            <view class="bookComment">
                 <view class="list-title">
                     <text>你已发布的书评：</text>
                 </view>            
-                <view class="comment-list">
+                <view class="commentList">
                     <uni-list>
                         <uni-list-item v-for="post in posts" :key="post.pid"
                             :title="post.postTitle"
@@ -233,7 +233,7 @@
 		margin-bottom: 80rpx;
 	}
 
-	.text-area {
+	.postArea {
 		display: flex;
 		justify-content: center;
 	}
@@ -288,7 +288,7 @@
         background-color: lightgray;
     }
 
-    .book-comment {
+    .bookComment {
         margin-top: 10%;
         margin-bottom: 10%;
     }

@@ -15,7 +15,7 @@
             </form>
         </view>
         <view class="reader" v-if="!isEdit">
-            <view class="text-area">
+            <view class="postArea">
                 <text class="title"> {{ post.postTitle }} </text>
                 <text class="post"> {{ post.postContent }} </text>
                 <view class="formBtn">
@@ -172,7 +172,7 @@
 		justify-content: center;
 	}
 
-	.text-area {
+	.postArea {
 		padding: 30rpx 60rpx;		
 		display: flex;
         flex-direction: column;

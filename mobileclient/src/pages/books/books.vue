@@ -1,11 +1,11 @@
 <template>
     <view class="content">
-         <view class="book-list">
+         <view class="bookList">
             <view class="book" v-for="book in books" :key="book.bid">
-                <view class="image-view">
-                    <image class="book-image" :src="book.bookFace"></image>
+                <view class="imageView">
+                    <image class="bookImage" :src="book.bookFace"></image>
                 </view>
-                <view class="book-title">
+                <view class="bookTitle">
                     <navigator :url="'/pages/bookmessage/bookmessage?bookid='+book.bid">
                         《{{book.bookName}}》
                     </navigator>
@@ -58,7 +58,7 @@
 		margin: 2%;
 	}
 
-    .book-list {
+    .bookList {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -70,12 +70,12 @@
         align-content: flex-start;
 		margin: 2%;;
     }
-    .book-image {
+    .bookImage {
 		width: 300rpx;
         height: 450rpx;
 		margin: 4%;;
     }
-    .book-title  {
+    .bookTitle  {
 		margin: 2%;
     }
 
