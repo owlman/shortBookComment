@@ -21,11 +21,13 @@
                 books: []
             };
         },
-        onLoad: function() {
+
+        onShow: function() {
             // 将获取书籍列表的操作封装
             // 以备将来重复调用
             this.getBooks();
         },
+
         methods: {
             getBooks: function() {
                 const that = this;
@@ -44,10 +46,10 @@
                     },
                     fail :  function(err) {
                         uni.showToast({
-                                title : '获取书籍列表失败',
-                                icon : 'error'
-                           });
-                    }
+                            title : '获取书籍列表失败',
+                            icon : 'error'
+                        });
+                     }
                 });
             }
         }
@@ -64,19 +66,21 @@
         justify-content: flex-start;
         flex-wrap: wrap;
     }
+
     .book {
         display: flex;
         flex-direction: column;
         align-content: flex-start;
 		margin: 2%;;
     }
+
     .bookImage {
 		width: 300rpx;
         height: 450rpx;
 		margin: 4%;;
     }
+    
     .bookTitle  {
 		margin: 2%;
     }
-
 </style>
