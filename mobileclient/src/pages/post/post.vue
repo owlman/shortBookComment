@@ -10,7 +10,7 @@
                 </view>
                 <view class="formBtn">
                     <button class="submit" form-type="submit">保存</button>
-                    <button class="reset" form-type="reset">重置</button>
+                    <button class="reset" @click="isEdit=false">取消</button>
                 </view>
             </form>
         </view>
@@ -18,10 +18,10 @@
             <view class="text-area">
                 <text class="title"> {{ post.postTitle }} </text>
                 <text class="post"> {{ post.postContent }} </text>
-            </view>
-            <view class="formBtn">
-                <button class="submit" @click="isEdit=true">修改</button>
-                <button class="delete" @click="deletePost">删除</button>
+                <view class="formBtn">
+                    <button class="submit" @click="isEdit=true">修改</button>
+                    <button class="delete" @click="deletePost">删除</button>
+                </view>
             </view>
         </view>
     </view>
@@ -173,7 +173,7 @@
 	}
 
 	.text-area {
-		padding: 30rpx 100rpx;		
+		padding: 30rpx 60rpx;		
 		display: flex;
         flex-direction: column;
 	}
@@ -214,6 +214,7 @@
     .formBtn{
 		width: 100%;
 		height: 80rpx;
+		padding: 15rpx 20rpx;
 		margin-top: 50rpx;
 		display: flex;
 		justify-content: center;
