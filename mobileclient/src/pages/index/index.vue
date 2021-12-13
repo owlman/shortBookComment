@@ -59,11 +59,7 @@
 			}
 		},
         onShow: function() {
-            const pages = getCurrentPages();
-            pages[pages.length - 1].onLoad();
-        },
-		onLoad: function() {
-            // 这是页面 load 事件的处理函数
+            // 这是页面 show 事件的处理函数
             // 事件在页面载入时被触发
             const that = this;
             uni.getStorage({
