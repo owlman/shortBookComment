@@ -156,9 +156,10 @@ module.exports = new Promise(function (resolve, reject) {
                     formData += chunk;
                 });
                 req.on('end', function () {
-                    const bookInfo = queryString.parse(formData.toString());
-                    if (bookInfo !== {}) {
-                        if (cookie.checkPermission(req, postInfo.uid) == false) {
+                    const postInfo = queryString.parse(formData.toString());
+                    if (postInfo !== {}) {
+                        console.log(postInfo)
+                        if (cookie.isLogin(req)) {
                             return responseError(res, {
                                 status: 401,
                                 message: 'premission_err'
@@ -198,21 +199,11 @@ module.exports = new Promise(function (resolve, reject) {
         posts_api.deleteData = async function (req, res, responseError) {
             const query = req.url.split('/').pop();
             if (isNaN(Number(query)) === false ) {
-                if(cookie.isLogin(req) == false) {
-                    const data = await sqliteDB('posts')
-                            .select('uid').where('pid', query);
-                    if (data.length > 0
-                        && cookie.checkPermission(req, data[0].uid) === false) {
-                        return responseError(res, {
-                            status: 401,
-                            message: 'premission_err'
-                        });                   
-                    } else if(data.length <= 0) {
-                        return responseError(res, {
-                            status: 400,
-                            message: 'data_not_exist_err'
-                        });
-                    }
+                if(cookie.isLogin(req)) {
+                    return responseError(res, {
+                        status: 401,
+                        message: 'premission_err'
+                    });                   
                 }
                 sqliteDB('posts').delete()
                 .where('pid', query)

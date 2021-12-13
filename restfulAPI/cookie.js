@@ -30,8 +30,7 @@ module.exports.isLogin = function(req) {
 // 用于验证用户权限：
 module.exports.checkPermission = function (req, query) {
     const cookies = this.parse(req.headers.cookie);
-    console.log(cookies.uid);
-    
+    console.log(cookies.uid);    
     return cookies.uid === query;
 };
 

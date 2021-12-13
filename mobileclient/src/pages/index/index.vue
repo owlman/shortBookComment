@@ -14,7 +14,7 @@
                         <uni-list-item v-for="post in posts" :key="post.pid"
                             :title="post.postTitle"
                             link="navigateTo"
-                            to="/pages/post/post"
+                            :to="'/pages/post/post?pid='+post.pid"
                         />
                     </uni-list>
                 </view>            
@@ -58,6 +58,10 @@
                 }
 			}
 		},
+        onShow: function() {
+            const pages = getCurrentPages();
+            pages[pages.length - 1].onLoad();
+        },
 		onLoad: function() {
             // 这是页面 load 事件的处理函数
             // 事件在页面载入时被触发

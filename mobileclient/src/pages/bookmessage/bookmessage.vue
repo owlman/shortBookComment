@@ -21,7 +21,7 @@
                     <uni-list-item v-for="post in posts" :key="post.pid"
                         :title="post.postTitle"
                         link="navigateTo"
-                        to="/pages/post/post"
+                        :to="'/pages/post/post?pid='+post.pid"
                     />
                 </uni-list>
             </view>            

@@ -37,7 +37,6 @@
                     }
                 }
             });
-
         },
         methods: {
             pubPost: function(event) {
@@ -92,7 +91,7 @@
                     fail :  function(err) {
                         // 返回的错误存储在 err 对象中
                         uni.showToast({
-                            title : '登录请求出错',
+                            title : '服务端不响应',
                             icon : 'error'
                         });
                     }
@@ -150,5 +149,4 @@
 		border-radius: 25rpx;
         background-color: lightgray;
     }
-
 </style>
