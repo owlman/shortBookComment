@@ -2,7 +2,7 @@
 
 ## 项目概况
 
-本项目是为[《Vue.js 全平台前端实战》](https://github.com/owlman/vuejs_in_action)一书编写的示例项目。该项目的后端是一个基于 RESTful 架构设计的 Web 服务，它基于 Node.js 平台与 Sqlite3 数据库来实现，将为前端提供以下 API：
+本项目是为[《Vue.js 全平台前端实战》](https://github.com/owlman/vuejs_in_action)一书编写的示例项目。该项目的后端是一个基于 RESTful 架构设计的 Web 服务，它基于 Node.js 运行平台与 Sqlite3 数据库来实现，将为前端提供以下 API：
 
 | HTTP 请求方法 | 请求路径  | API 功能说明  |
 | ---------------- |---------- |---------------------- |
