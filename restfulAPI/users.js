@@ -144,7 +144,7 @@ module.exports = new Promise(function (resolve, reject) {
         users_api.updateData = function (req, res, responseError) {
             const query = req.url.split('/').pop();
             if (isNaN(Number(query)) === false) {
-                if (cookie.checkPermission(req, query) == false) {
+                if (cookie.isLogin(req)) {
                     return responseError(res, {
                         status: 401,
                         message: 'premission_err'

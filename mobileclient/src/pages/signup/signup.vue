@@ -110,7 +110,7 @@
 		margin-bottom: 80rpx;
 	}
 
-	.text-area {
+	.textArea {
 		display: flex;
 		justify-content: center;
 	}
@@ -160,5 +160,4 @@
 		border-radius: 25rpx;
         background-color: lightgray;
     }
-
 </style>
