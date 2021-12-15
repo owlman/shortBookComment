@@ -99,8 +99,8 @@
             },
             updateUser: function(event) {
                 // 这是表单 submit 事件的处理函数
-                const formdata = event.detail.value;
-                if (formdata.password !== formdata.repassword) {
+                const formData = event.detail.value;
+                if (formData.password !== formData.repassword) {
                     // 提示用户确认密码
                     uni.showToast({
                         title: '请确认你的密码',
@@ -110,8 +110,8 @@
                 }
                 const userData =  {
                     uid: this.user.uid,
-                    user: formdata.userName,
-                    passwd: md5(formdata.password)
+                    user: formData.userName,
+                    passwd: md5(formData.password)
                 };
                 uni.request({
                     method : 'POST',

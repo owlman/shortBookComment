@@ -52,13 +52,15 @@
 
    ```bash
    cd webClient 
+   npm install
    npm run build 
    ```
 
 - 然后在项目根目录中执行以下命令构建项目的`mobileClient`部分（也可以使用 HBuilderX 集成环境打开`mobileClient/src`目录进行自动化构建）：
 
    ```bash
-   cd mobileClient 
+   cd mobileClient
+   npm install 
    npm run dev:[%PLATFORM%]
    ```
 

@@ -41,12 +41,12 @@
         methods: {
             pubPost: function(event) {
                 // 这是表单 submit 事件的处理函数
-                const formdata = event.detail.value;
+                const formData = event.detail.value;
                 const postData =  {
                     uid: this.userid,
                     bid: this.bookid,
-                    postTitle : formdata.postTitle,
-                    postContent: formdata.postContent,
+                    postTitle : formData.postTitle,
+                    postContent: formData.postContent,
                     postDate: new Date()
                 };
                 const that = this;

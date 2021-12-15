@@ -78,10 +78,10 @@
 		methods: {
             login: function(event) {
                 // 这是表单 submit 事件的处理函数
-                const formdata = event.detail.value;
+                const formData = event.detail.value;
                 const userData =  {
-                    user : formdata.userName,
-                    passwd : md5(formdata.password)
+                    user : formData.userName,
+                    passwd : md5(formData.password)
                 };
                 const that = this;
                 uni.request({
