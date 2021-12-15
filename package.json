@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webbuild": "cd webclient && npm run build && cd ..",
+    "webbuild": "cd webClient && npm run build && cd ..",
     "start": "npm run webbuild && node ./index.js"
   },
   "keywords": [],
