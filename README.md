@@ -7,30 +7,30 @@
 - 运行平台：Node.js
 - 开发语言：JavaScript
 - 开发框架：Vue.js, uni-app
-- 数据库：Sqlite3
+- 数据库   ：SQLite3
 
 ## 项目概况
 
 该项目的后端是一个基于 RESTful 架构设计的 Web 服务，它基于 Node.js 运行平台与 Sqlite3 数据库来实现，将为前端提供以下 API：
 
-| HTTP 请求方法 | 请求路径                     | API 功能说明                     |
-| ------------- | ---------------------------- | -------------------------------- |
-| POST          | `/users/session`             | 用于实现用户登录功能。           |
-| POST          | `/users/newuser`             | 用于实现新用户注册功能。         |
-| GET           | `/users/<用户的ID>`          | 用于实现用户信息查看功能。       |
-| POST          | `/users/<用户的ID>`          | 用于实现用户信息修改功能。       |
-| DELETE        | `/users/<用户的ID>`          | 用于实现用户信息删除功能。       |
-| POST          | `/books/newbook`             | 用于实现添加新书籍的功能。       |
-| GET           | `/books/<书籍的ID>`          | 用于实现书籍信息查看功能。       |
-| POST          | `/books/<书籍的ID>`          | 用于实现书籍信息修改功能。       |
-| DELETE        | `/books/<书籍的ID>`          | 用于实现书籍信息删除功能。       |
-| GET           | `/books/list/`               | 用于列出所有书籍。               |
-| POST          | `/posts/newpost`             | 用于实现添加新书评的功能。       |
-| GET           | `/posts/<书评的ID>`          | 用于实现书评帖子查看功能。       |
-| POST          | `/posts/<书评的ID>`          | 用于实现书评帖子修改功能。       |
-| DELETE        | `/posts/<书评的ID>`          | 用于实现书评帖子删除功能。       |
-| GET           | `/posts/userlist/<用户的ID>` | 用于列出指定用户发表的所有书评。 |
-| GET           | `/posts/booklist/<书籍的ID>` | 用于列出指定书籍下面的所有书评。 |
+| HTTP 请求方法 | 请求路径                           |  功能说明                                 |
+| ---------------- | --------------------------- | -------------------------------- |
+| POST                | `/users/session`                  | 用于实现用户登录功能。           |
+| POST                | `/users/newuser`                | 用于实现新用户注册功能。         |
+| GET                   | `/users/<用户的ID>`            | 用于实现用户信息查看功能。    |
+| POST                 | `/users/<用户的ID>`           | 用于实现用户信息修改功能。     |
+| DELETE              | `/users/<用户的ID>`          | 用于实现用户信息删除功能。      |
+| POST                 | `/books/newbook`             | 用于实现添加新书籍的功能。      |
+| GET                   | `/books/<书籍的ID>`          | 用于实现书籍信息查看功能。      |
+| POST                 | `/books/<书籍的ID>`         | 用于实现书籍信息修改功能。      |
+| DELETE              | `/books/<书籍的ID>`        | 用于实现书籍信息删除功能。       |
+| GET                   | `/books/list/`                       | 用于列出所有书籍。                   |
+| POST                | `/posts/newpost`               | 用于实现添加新书评的功能。       |
+| GET                  | `/posts/<书评的ID>`            | 用于实现书评帖子查看功能。      |
+| POST                | `/posts/<书评的ID>`          | 用于实现书评帖子修改功能。       |
+| DELETE             | `/posts/<书评的ID>`         | 用于实现书评帖子删除功能。       |
+| GET                   | `/posts/userlist/<用户的ID>` | 用于列出指定用户发表的所有书评。 |
+| GET                   | `/posts/booklist/<书籍的ID>` | 用于列出指定书籍下面的所有书评。 |
 
 该项目的前端主要分为两个部分：
 
